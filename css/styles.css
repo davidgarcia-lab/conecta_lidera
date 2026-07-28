@@ -1608,3 +1608,416 @@ li.parrafo-transcripcion {
     }
 
 }
+
+
+/* ==========================================================
+   PALETAS INDIVIDUALES PARA CADA LIBRO
+   Colocar este bloque al final de styles.css
+   ========================================================== */
+
+
+/* ==========================================================
+   CONFIGURACIÓN GENERAL DE LOS TEMAS
+   ========================================================== */
+
+body[class*="tema-libro-"] {
+    --tema-color-1: #1b5d4d;
+    --tema-color-2: #0c4035;
+    --tema-color-claro: #e5f2ee;
+    --tema-color-muy-claro: #f1f8f6;
+    --tema-color-rgb: 27, 93, 77;
+}
+
+
+/*
+   Los elementos principales tomarán el color
+   definido por cada tema.
+*/
+
+body[class*="tema-libro-"] .cabecera-libro {
+    background:
+        radial-gradient(
+            circle at 80% 10%,
+            rgba(255, 255, 255, 0.14),
+            transparent 30%
+        ),
+        linear-gradient(
+            135deg,
+            var(--tema-color-2),
+            var(--tema-color-1)
+        );
+}
+
+body[class*="tema-libro-"] .detalle-portada {
+    background:
+        radial-gradient(
+            circle at 50% 35%,
+            rgba(255, 255, 255, 0.17),
+            transparent 36%
+        ),
+        linear-gradient(
+            135deg,
+            var(--tema-color-1),
+            var(--tema-color-2)
+        );
+
+    box-shadow:
+        0 28px 55px
+        rgba(var(--tema-color-rgb), 0.30);
+}
+
+body[class*="tema-libro-"] .tipo-libro {
+    color:
+        var(--tema-color-2);
+
+    background:
+        var(--tema-color-claro);
+}
+
+body[class*="tema-libro-"] .subtitulo {
+    color:
+        var(--tema-color-1);
+}
+
+body[class*="tema-libro-"] .subtitulo-claro {
+    color:
+        rgba(255, 255, 255, 0.72);
+}
+
+body[class*="tema-libro-"] .autor-detalle {
+    color:
+        rgba(255, 255, 255, 0.78);
+}
+
+body[class*="tema-libro-"] .icono-bloque {
+    color:
+        var(--tema-color-2);
+
+    background:
+        var(--tema-color-claro);
+}
+
+body[class*="tema-libro-"] .nota-transcripcion {
+    color:
+        var(--tema-color-2);
+
+    background:
+        var(--tema-color-muy-claro);
+
+    border-left-color:
+        var(--tema-color-1);
+}
+
+body[class*="tema-libro-"] .spotify-contenedor {
+    background:
+        var(--tema-color-2);
+
+    border-color:
+        rgba(var(--tema-color-rgb), 0.24);
+
+    box-shadow:
+        0 15px 35px
+        rgba(var(--tema-color-rgb), 0.16);
+}
+
+body[class*="tema-libro-"] .boton-principal {
+    background:
+        var(--tema-color-1);
+
+    box-shadow:
+        0 10px 25px
+        rgba(var(--tema-color-rgb), 0.25);
+}
+
+body[class*="tema-libro-"] .boton-principal:hover {
+    background:
+        var(--tema-color-2);
+}
+
+body[class*="tema-libro-"] .tarjeta-destacada {
+    background:
+        radial-gradient(
+            circle at 90% 10%,
+            rgba(255, 255, 255, 0.10),
+            transparent 32%
+        ),
+        linear-gradient(
+            135deg,
+            var(--tema-color-2),
+            var(--tema-color-1)
+        );
+}
+
+body[class*="tema-libro-"] .lista-aprendizajes li::before {
+    background:
+        var(--tema-color-1);
+}
+
+body[class*="tema-libro-"] .texto-transcripcion em {
+    color:
+        var(--tema-color-1);
+}
+
+body[class*="tema-libro-"] .texto-transcripcion blockquote {
+    color:
+        var(--tema-color-2);
+
+    background:
+        var(--tema-color-claro);
+
+    border-left-color:
+        var(--tema-color-1);
+}
+
+
+/* ==========================================================
+   TRANSCRIPCIÓN INTERACTIVA SEGÚN CADA PALETA
+   ========================================================== */
+
+body[class*="tema-libro-"] .texto-transcripcion::before {
+    color:
+        var(--tema-color-2);
+
+    background:
+        var(--tema-color-muy-claro);
+
+    border-color:
+        rgba(var(--tema-color-rgb), 0.22);
+}
+
+body[class*="tema-libro-"]
+.texto-transcripcion
+.parrafo-transcripcion:hover {
+    background:
+        var(--tema-color-muy-claro);
+
+    border-color:
+        rgba(var(--tema-color-rgb), 0.35);
+}
+
+body[class*="tema-libro-"]
+.texto-transcripcion
+.parrafo-transcripcion.parrafo-activo {
+    color:
+        #242424;
+
+    background:
+        linear-gradient(
+            135deg,
+            var(--tema-color-muy-claro),
+            var(--tema-color-claro)
+        );
+
+    border-color:
+        var(--tema-color-1);
+
+    box-shadow:
+        0 9px 26px
+        rgba(var(--tema-color-rgb), 0.18);
+}
+
+body[class*="tema-libro-"]
+.texto-transcripcion
+.parrafo-transcripcion.parrafo-activo::before {
+    background:
+        var(--tema-color-1);
+}
+
+body[class*="tema-libro-"]
+.texto-transcripcion
+.parrafo-transcripcion:focus-visible {
+    background:
+        var(--tema-color-muy-claro);
+
+    border-color:
+        var(--tema-color-1);
+
+    box-shadow:
+        0 0 0 4px
+        rgba(var(--tema-color-rgb), 0.16);
+}
+
+body[class*="tema-libro-"]
+.texto-transcripcion
+h2.parrafo-transcripcion.parrafo-activo,
+
+body[class*="tema-libro-"]
+.texto-transcripcion
+h3.parrafo-transcripcion.parrafo-activo,
+
+body[class*="tema-libro-"]
+.texto-transcripcion
+h4.parrafo-transcripcion.parrafo-activo {
+    color:
+        var(--tema-color-2);
+}
+
+body[class*="tema-libro-"]
+.texto-transcripcion
+.parrafo-transcripcion.parrafo-activo em {
+    color:
+        var(--tema-color-2);
+}
+
+body[class*="tema-libro-"]
+.texto-transcripcion
+blockquote.parrafo-transcripcion.parrafo-activo {
+    background:
+        var(--tema-color-claro);
+
+    border-left-color:
+        var(--tema-color-1);
+}
+
+
+/* ==========================================================
+   LIBRO 1
+   HAZLO SOLO
+   Paleta naranja
+   ========================================================== */
+
+body.tema-libro-1 {
+    --tema-color-1: #ffad45;
+    --tema-color-2: #a72e08;
+
+    --tema-color-claro: #ffe7c7;
+    --tema-color-muy-claro: #fff7ed;
+
+    --tema-color-rgb: 167, 46, 8;
+}
+
+
+/* ==========================================================
+   LIBRO 2
+   EL MBA PERSONAL
+   Paleta morada y coral
+   ========================================================== */
+
+body.tema-libro-2 {
+    --tema-color-1: #d65050;
+    --tema-color-2: #5d2d91;
+
+    --tema-color-claro: #f0e3f7;
+    --tema-color-muy-claro: #faf5fc;
+
+    --tema-color-rgb: 93, 45, 145;
+}
+
+
+/* ==========================================================
+   LIBRO 3
+   EL LENGUAJE NO VERBAL EN LA COMUNICACIÓN ONLINE
+   Paleta turquesa
+   ========================================================== */
+
+body.tema-libro-3 {
+    --tema-color-1: #008c95;
+    --tema-color-2: #085a66;
+
+    --tema-color-claro: #d5f1f2;
+    --tema-color-muy-claro: #f1fbfb;
+
+    --tema-color-rgb: 0, 140, 149;
+}
+
+
+/* ==========================================================
+   LIBRO 4
+   EL DISCURSO PERFECTO
+   Paleta azul
+   ========================================================== */
+
+body.tema-libro-4 {
+    --tema-color-1: #4169a1;
+    --tema-color-2: #162c56;
+
+    --tema-color-claro: #dfe8f4;
+    --tema-color-muy-claro: #f4f7fb;
+
+    --tema-color-rgb: 65, 105, 161;
+}
+
+
+/* ==========================================================
+   LIBRO 5
+   EL ARTE DE CERRAR LA VENTA
+   Paleta naranja intensa
+   ========================================================== */
+
+body.tema-libro-5 {
+    --tema-color-1: #f07f2f;
+    --tema-color-2: #a02905;
+
+    --tema-color-claro: #ffe2cc;
+    --tema-color-muy-claro: #fff6ef;
+
+    --tema-color-rgb: 240, 127, 47;
+}
+
+
+/* ==========================================================
+   LIBRO 6
+   LA PSICOLOGÍA DEL DINERO
+   Paleta verde
+   ========================================================== */
+
+body.tema-libro-6 {
+    --tema-color-1: #29705c;
+    --tema-color-2: #12382f;
+
+    --tema-color-claro: #dcece7;
+    --tema-color-muy-claro: #f3f8f6;
+
+    --tema-color-rgb: 41, 112, 92;
+}
+
+
+/* ==========================================================
+   LIBRO 7
+   LA CIENCIA DE LAS VENTAS
+   Paleta dorada
+   ========================================================== */
+
+body.tema-libro-7 {
+    --tema-color-1: #d1a321;
+    --tema-color-2: #755805;
+
+    --tema-color-claro: #f6ecc6;
+    --tema-color-muy-claro: #fdf9eb;
+
+    --tema-color-rgb: 209, 163, 33;
+}
+
+
+/* ==========================================================
+   LIBRO 8
+   DE CERO A UNO
+   Paleta azul oscuro
+   ========================================================== */
+
+body.tema-libro-8 {
+    --tema-color-1: #323e73;
+    --tema-color-2: #151b35;
+
+    --tema-color-claro: #e0e3f0;
+    --tema-color-muy-claro: #f5f6fa;
+
+    --tema-color-rgb: 50, 62, 115;
+}
+
+
+/* ==========================================================
+   LIBRO 9
+   LAS 48 LEYES DEL PODER
+   Paleta vino
+   ========================================================== */
+
+body.tema-libro-9 {
+    --tema-color-1: #852b36;
+    --tema-color-2: #371017;
+
+    --tema-color-claro: #f0dfe2;
+    --tema-color-muy-claro: #faf4f5;
+
+    --tema-color-rgb: 133, 43, 54;
+}
