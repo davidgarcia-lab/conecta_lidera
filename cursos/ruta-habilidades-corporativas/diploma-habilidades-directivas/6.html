@@ -10,6 +10,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Lora:wght@600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../../../css/clase.css">
+    <link rel="stylesheet" href="../../../css/practica-general.css">
 </head>
 
 <body>
@@ -380,93 +381,7 @@ Esta clase explora cómo construir una <strong>influencia legítima</strong> bas
 
     </section>
 
-    <script>
-        document.addEventListener("DOMContentLoaded", function () {
-            const formulario = document.getElementById("quiz-form");
-            const resultado = document.getElementById("quiz-resultado");
-
-            if (!formulario || !resultado) return;
-
-            formulario.addEventListener("submit", function (event) {
-                event.preventDefault();
-
-                const preguntas = formulario.querySelectorAll("fieldset[data-respuesta]");
-                let correctas = 0;
-                let respondidas = 0;
-
-                preguntas.forEach(function (pregunta) {
-                    const respuestaCorrecta = pregunta.dataset.respuesta;
-                    const seleccionada = pregunta.querySelector('input[type="radio"]:checked');
-                    const labels = pregunta.querySelectorAll("label");
-
-                    labels.forEach(function (label) {
-                        label.style.color = "";
-                        label.style.fontWeight = "";
-                    });
-
-                    if (seleccionada) {
-                        respondidas++;
-
-                        const labelSeleccionado = seleccionada.closest("label");
-
-                        if (seleccionada.value === respuestaCorrecta) {
-                            correctas++;
-                            labelSeleccionado.style.color = "#16803c";
-                            labelSeleccionado.style.fontWeight = "700";
-                        } else {
-                            labelSeleccionado.style.color = "#c62828";
-
-                            const correcta = pregunta.querySelector(
-                                'input[value="' + respuestaCorrecta + '"]'
-                            );
-
-                            if (correcta) {
-                                const labelCorrecto = correcta.closest("label");
-                                labelCorrecto.style.color = "#16803c";
-                                labelCorrecto.style.fontWeight = "700";
-                            }
-                        }
-                    }
-                });
-
-                const porcentaje = Math.round((correctas / preguntas.length) * 100);
-
-                if (respondidas < preguntas.length) {
-                    resultado.textContent =
-                        "Has respondido " +
-                        respondidas +
-                        " de " +
-                        preguntas.length +
-                        " preguntas. Resultado parcial: " +
-                        correctas +
-                        " respuestas correctas.";
-                    return;
-                }
-
-                let mensaje = "";
-
-                if (porcentaje === 100) {
-                    mensaje = "Excelente dominio del tema.";
-                } else if (porcentaje >= 80) {
-                    mensaje = "Muy buen nivel de comprensión.";
-                } else if (porcentaje >= 60) {
-                    mensaje = "Buen avance. Conviene revisar algunos conceptos.";
-                } else {
-                    mensaje = "Revisa nuevamente la lectura y vuelve a intentarlo.";
-                }
-
-                resultado.textContent =
-                    "Obtuviste " +
-                    correctas +
-                    " de " +
-                    preguntas.length +
-                    " respuestas correctas (" +
-                    porcentaje +
-                    "%). " +
-                    mensaje;
-            });
-        });
-    </script>
+   
 
 
 
@@ -485,6 +400,6 @@ Esta clase explora cómo construir una <strong>influencia legítima</strong> bas
     </footer>
 
     <script src="../../../js/transcripcion.js"></script>
-    <script src="../../../js/clase.js"></script>
+    <script src="../../../js/practica-general.js"></script>
 </body>
 </html>

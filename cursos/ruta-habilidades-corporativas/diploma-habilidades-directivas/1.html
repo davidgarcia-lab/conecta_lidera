@@ -10,6 +10,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Lora:wght@600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../../../css/clase.css">
+    <link rel="stylesheet" href="../../../css/practica-general.css">
 </head>
 
 <body>
@@ -342,125 +343,7 @@ Liderar no es controlar personas: es construir dirección, confianza, coordinaci
 
 </section>
 
-<script>
-document.addEventListener("DOMContentLoaded", function () {
-    const quizForm = document.getElementById("quiz-form");
-    const resultado = document.getElementById("quiz-resultado");
 
-    if (!quizForm || !resultado) return;
-
-    quizForm.addEventListener("submit", function (event) {
-        event.preventDefault();
-
-        const preguntas = quizForm.querySelectorAll("fieldset[data-respuesta]");
-        let correctas = 0;
-        let respondidas = 0;
-
-        preguntas.forEach(function (pregunta) {
-            const respuestaCorrecta = pregunta.dataset.respuesta;
-            const seleccionada = pregunta.querySelector('input[type="radio"]:checked');
-            const labels = pregunta.querySelectorAll("label");
-
-            labels.forEach(function (label) {
-                label.classList.remove("respuesta-correcta", "respuesta-incorrecta");
-            });
-
-            if (!seleccionada) {
-                return;
-            }
-
-            respondidas++;
-
-            const labelSeleccionado = seleccionada.closest("label");
-
-            if (seleccionada.value === respuestaCorrecta) {
-                correctas++;
-                labelSeleccionado.classList.add("respuesta-correcta");
-            } else {
-                labelSeleccionado.classList.add("respuesta-incorrecta");
-
-                const correcta = pregunta.querySelector(
-                    'input[value="' + respuestaCorrecta + '"]'
-                );
-
-                if (correcta) {
-                    correcta.closest("label").classList.add("respuesta-correcta");
-                }
-            }
-        });
-
-        if (respondidas < preguntas.length) {
-            resultado.textContent =
-                "Responde las 5 preguntas antes de comprobar el cuestionario.";
-            resultado.className = "quiz-resultado incompleto";
-            return;
-        }
-
-        const porcentaje = Math.round((correctas / preguntas.length) * 100);
-
-        if (correctas === preguntas.length) {
-            resultado.textContent =
-                "¡Excelente! Obtuviste " + correctas + "/5 (" + porcentaje + "%). Has comprendido los conceptos principales.";
-            resultado.className = "quiz-resultado excelente";
-        } else if (correctas >= 4) {
-            resultado.textContent =
-                "¡Muy bien! Obtuviste " + correctas + "/5 (" + porcentaje + "%). Tienes una comprensión sólida de la clase.";
-            resultado.className = "quiz-resultado bueno";
-        } else if (correctas >= 3) {
-            resultado.textContent =
-                "Obtuviste " + correctas + "/5 (" + porcentaje + "%). Vas por buen camino; revisa las respuestas marcadas.";
-            resultado.className = "quiz-resultado regular";
-        } else {
-            resultado.textContent =
-                "Obtuviste " + correctas + "/5 (" + porcentaje + "%). Conviene repasar las ideas principales y volver a intentarlo.";
-            resultado.className = "quiz-resultado revisar";
-        }
-    });
-});
-</script>
-
-<style>
-.actividad.cuestionario fieldset {
-    margin-bottom: 1.5rem;
-}
-
-.actividad.cuestionario label {
-    display: block;
-    padding: 0.65rem 0.8rem;
-    margin: 0.4rem 0;
-    border-radius: 6px;
-    transition: background-color 0.2s ease;
-}
-
-.actividad.cuestionario .respuesta-correcta {
-    background-color: #e8f7ed;
-    color: #176b35;
-}
-
-.actividad.cuestionario .respuesta-incorrecta {
-    background-color: #fdeaea;
-    color: #a12626;
-}
-
-.quiz-resultado {
-    margin-top: 1rem;
-    font-weight: 600;
-}
-
-.quiz-resultado.excelente,
-.quiz-resultado.bueno {
-    color: #176b35;
-}
-
-.quiz-resultado.regular {
-    color: #946200;
-}
-
-.quiz-resultado.revisar,
-.quiz-resultado.incompleto {
-    color: #a12626;
-}
-</style>
 
 
                     
@@ -478,6 +361,6 @@ document.addEventListener("DOMContentLoaded", function () {
     </footer>
 
     <script src="../../../js/transcripcion.js"></script>
-    <script src="../../../js/clase.js"></script>
+    <script src="../../../js/practica-general.js"></script>
 </body>
 </html>
